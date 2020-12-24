@@ -2,6 +2,10 @@ import java.io.File
 import java.io.FileInputStream
 
 fun isImage(file: File): Boolean {
+    if (hasImageSuffix(file)) {
+        return true
+    }
+
     val inputStream = FileInputStream(file)
     val jpg = listOf("FF", "D8")
     val bmp = listOf("42", "4D")
@@ -26,6 +30,14 @@ fun isImage(file: File): Boolean {
     }
 
     return false
+}
+
+fun hasImageSuffix(file: File): Boolean {
+    val fileName = file.name
+    return fileName.endsWith(".jpg")
+            || fileName.endsWith(".png")
+            || fileName.endsWith(".bmp")
+            || fileName.endsWith(".gif")
 }
 
 fun getImageSuffix(file: File): String? {
