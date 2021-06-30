@@ -1,5 +1,5 @@
 #!/usr/bin/env kotlin
-@file:Import("../common.kts")
+@file:Import("../image_common.kts")
 
 import java.io.File
 import java.io.FileInputStream
