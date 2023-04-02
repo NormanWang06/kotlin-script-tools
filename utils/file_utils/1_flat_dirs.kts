@@ -1,9 +1,13 @@
 #!/usr/bin/env kotlin
 import java.io.File
 
-flatDirs(File("/Users/neulion/Desktop/qq"), File("/Users/neulion/Desktop/flatqq"))
-
 val nameSet = HashSet<String>()
+
+val from = "C:\\Users\\Norman\\Desktop\\chatpic"
+val to = "C:\\Users\\Norman\\Desktop\\chatpic_flat"
+
+flatDirs(File(from), File(to))
+
 
 fun flatDirs(source: File, desDir: File) {
     if (!desDir.exists()) {

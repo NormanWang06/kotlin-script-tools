@@ -1,7 +1,9 @@
 #!/usr/bin/env kotlin
 import java.io.File
 
-removeEmptyDir(File("/Users/neulion/Desktop/qq"))
+val from = "C:\\Users\\Norman\\Desktop\\QQfile_recv"
+
+removeEmptyDir(File(from))
 
 fun removeEmptyDir(file: File) {
     if (file.isDirectory) {

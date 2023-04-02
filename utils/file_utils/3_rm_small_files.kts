@@ -3,26 +3,26 @@
 // args[1] is smallest file size in bytes (Incluse)
 
 import java.io.File
-import kotlin.system.exitProcess
 
-//removeSmallFiles("/Users/neulion/Desktop/flatqq")
+val from = "C:\\Users\\Norman\\Desktop\\shortvideo"
+removeSmallFiles(File(from))
 println("========================================")
 
-val fileName = readFileNameFromArgs()
-if (fileName.isNullOrEmpty()) {
-    println("please input dir or file name!")
-    exitProcess(1)
-}
+//val fileName = readFileNameFromArgs()
+//if (fileName.isNullOrEmpty()) {
+//    println("please input dir or file name!")
+//    exitProcess(1)
+//}
+//
+//val fileSizeIncluse = readFileSizeFromArgs()
+//if (fileSizeIncluse == null) {
+//    println("file size: ${args[1]} is not correct, please input a number!")
+//    exitProcess(2)
+//}
+//
+//removeSmallFiles(File(fileName), fileSizeIncluse ?: 0)
 
-val fileSizeIncluse = readFileSizeFromArgs()
-if (fileSizeIncluse == null) {
-    println("file size: ${args[1]} is not correct, please input a number!")
-    exitProcess(2)
-}
-
-removeSmallFiles(File(fileName), fileSizeIncluse ?: 0)
-
-fun removeSmallFiles(file: File, fileSizeIncluse: Long) {
+fun removeSmallFiles(file: File, fileSizeIncluse: Long = 1024 * 50) {
     if (file.isDirectory) {
         file.listFiles()?.forEach { removeSmallFiles(it, fileSizeIncluse) }
     } else if (file.isFile && file.canRead() && file.length() <= fileSizeIncluse) {

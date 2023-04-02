@@ -4,7 +4,10 @@
 import java.io.File
 import java.io.FileInputStream
 
-pickUpImages(File("/Users/neulion/Desktop/flatqq"), File("/Users/neulion/Desktop/flatqq-images2"))
+val from = "C:\\Users\\Norman\\Desktop\\QQfile_recv_flat"
+val to = "C:\\Users\\Norman\\Desktop\\QQfile_recv_flat-images"
+
+pickUpImages(File(from), File(to))
 
 fun pickUpImages(source: File, dest: File) {
     if (source.isDirectory) {

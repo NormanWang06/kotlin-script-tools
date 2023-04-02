@@ -57,7 +57,8 @@ fun getImageSuffix(file: File): String? {
             return null
         }
 
-        bytesIterated.add(byte.joinToString("") { "%02x".format(it) })
+        val str = byte.joinToString("") { "%02x".format(it).uppercase() }
+        bytesIterated.add(str)
         val typeEntry = imgTypes.entries.find { bytesIterated.containsAll(it.value) }
         if (typeEntry != null) {
             return typeEntry.key
